@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Arya</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+/* ===== GENERAL ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0b0f1a;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ===== STAR BACKGROUND ===== */
+.stars {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #0b0f1a;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.2; }
+}
+
+/* ===== FADE-IN ANIMATION ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1.5s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== HERO ===== */
+.hero {
+  padding: 60px 20px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.5rem;
+  color: #ffda8a;
+  text-shadow: 0 0 10px rgba(255, 218, 138, 0.6);
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #c3b6ff;
+}
+
+/* ===== POLAROID STYLE ===== */
+.polaroid {
+  background: white;
+  padding: 10px 10px 30px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  max-width: 250px;
+  opacity: 0;
+  animation: fadeUp 1.5s ease forwards;
+  transition: transform 0.3s ease;
+}
+
+.polaroid:nth-child(1) { animation-delay: 0.5s; transform: rotate(-3deg); }
+.polaroid:nth-child(2) { animation-delay: 0.8s; transform: rotate(2deg); }
+.polaroid:nth-child(3) { animation-delay: 1.1s; transform: rotate(-1deg); }
+
+.polaroid img {
+  width: 100%;       /* fill frame width */
+  height: auto;      /* keep natural aspect ratio */
+  display: block;    /* remove gaps below images */
+  object-fit: contain; /* makes sure whole image shows if needed */
+}
+
+
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.05);
+  cursor: pointer;
+}
+
+.caption {
+  font-size: 0.9rem;
+  color: #333;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.polaroid-1 {
+  background: white;
+  padding: 10px 10px 30px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  max-width: 250px;
+  opacity: 0;
+  animation: fadeUp 1.5s ease forwards;
+  transition: transform 0.3s ease;
+}
+
+.polaroid-1:nth-child(1) { animation-delay: 0.5s; transform: rotate(-3deg); }
+.polaroid-1:nth-child(2) { animation-delay: 0.8s; transform: rotate(2deg); }
+.polaroid-1:nth-child(3) { animation-delay: 1.1s; transform: rotate(-1deg); }
+
+.polaroid-1 img {
+  width: 100%;       /* fill frame width */
+  height: auto;      /* keep natural aspect ratio */
+  display: block;    /* remove gaps below images */
+  object-fit: contain; /* makes sure whole image shows if needed */
+}
+
+
+.polaroid-1:hover {
+  transform: rotate(0deg) scale(1.05);
+  cursor: pointer;
+}
+/* ===== LOVE STORY SECTION ===== */
+.story {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 20px 50px;
+  align-items: flex-start; /* <-- this is the key */
+}
+
+
+/* ===== LETTER SECTION ===== */
+.letter {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.letter p {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  max-width: 800px;
+  margin: auto;
+  color: #ffda8a;
+  text-shadow: 0 0 10px rgba(255, 218, 138, 0.4);
+}
+
+/* ===== ENDING ===== */
+.ending {
+  text-align: center;
+  padding: 50px;
+}
+
+.love-btn {
+  background: #c5b6ff;
+  color: #0b0f1a;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.3rem;
+  font-family: 'poppins';
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.love-btn:hover {
+  background: #ffda8a;
+}
+.polaroid img,
+.polaroid-1 img {
+  display: block;
+  max-width: 100%;
+  max-height: 350px; /* keeps very tall images from looking huge */
+  height: auto;
+  width: auto;       /* prevents forced stretching for vertical images */
+  object-fit: contain;
+}
+
+.polaroid,
+.polaroid-1 {
+  background: white;
+  padding: 10px 10px 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  display: inline-block;
+  max-width: 250px;   /* still keeps layout tidy for horizontal photos */
+}
+
+
+/* Hearts animation */
+@keyframes floatHearts {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-200px) scale(1.5); opacity: 0; }
+}
+
+.heart {
+  position: fixed;
+  color: #ffb6c1;
+  font-size: 1.5rem;
+  animation: floatHearts 3s linear forwards;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.5rem; }
+  .letter p { font-size: 1.5rem; }
+  .love-btn { font-size: 1.4rem; padding: 12px 28px; }
+}
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+
+<section class="hero fade-in" style="animation-delay: 0.2s;">
+  <h1>Hii Aryaa!</h1>
+  <p>Our little gallery of memories</p>
+</section>
+
+<section class="story">
+  <div class="polaroid-1">
+    <img src="photo2.jpeg" alt="Memory 1">
+    <div class="caption"></div>
+  </div>
+  <div class="polaroid" style="transform: rotate(2deg);">
+    <img src="photo1.jpeg" alt="Memory 2">
+    <div class="caption"></div>
+  </div>
+  <div class="polaroid-1">
+    <img src="photo3.jpeg" alt="Memory 3">
+    <div class="caption"></div>
+  </div>
+</section>
+
+<!-- LETTER -->
+<section class="letter fade-in" style="animation-delay: 1.5s;">
+  <p>
+    I'll keep updating this website whenever we get more photos of us🤭
+  </p>
+</section>
+
+<!-- ENDING -->
+<section class="ending fade-in" style="animation-delay: 2s;">
+  <button class="love-btn" onclick="sendHearts()"></button>
+</section>
+
+<script>
+// Floating hearts effect
+function sendHearts() {
+  for (let i = 0; i < 15; i++) {
+    let heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDelay = (Math.random() * 2) + 's';
+    heart.innerHTML = '💖';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 3000);
+  }
+}
+
+// Generate stars
+function createStars() {
+  const starContainer = document.getElementById('stars');
+  const starCount = 100;
+  for (let i = 0; i < starCount; i++) {
+    let star = document.createElement('div');
+    star.className = 'star';
+    let size = Math.random() * 2 + 1 + 'px';
+    star.style.width = size;
+    star.style.height = size;
+    star.style.top = Math.random() * 100 + '%';
+    star.style.left = Math.random() * 100 + '%';
+    star.style.animationDelay = Math.random() * 3 + 's';
+    starContainer.appendChild(star);
+  }
+}
+createStars();
+</script>
+
+</body>
+</html>
